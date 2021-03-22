@@ -7,7 +7,6 @@
 $clientId = ""
 $tenantId = ""
 $clientSecret = ''
-#9a5eb988-3868-4d90-b004-c20d56b9dc67
 
 # Construct URI
 $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
@@ -57,14 +56,6 @@ $content = while (-not [string]::IsNullOrEmpty($currentUri)) {
 
 #https://graph.microsoft.com/v1.0/users/$user/ownedDevices
 #https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-1.0&tabs=http
-
-
-<#$content. | ForEach {
-    $_.attributes | Add-Member -MemberType NoteProperty -Name "id" -Value $_.id
-    $_.attributes | Add-Member -MemberType NoteProperty -Name "Enrollmentstate" -Value $_.enrollmentstate
-}
-$content.attributes | Export-Csv -Path C:\IP.csv -NoTypeInformation
-#>
 
 $users = $content.value
 
