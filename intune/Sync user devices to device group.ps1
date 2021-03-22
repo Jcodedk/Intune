@@ -121,36 +121,3 @@ Write-Host -ForegroundColor Green "Tilføjer $DEVICENAME til gruppen - Bruger $U
 }
 }
 }
-
-<#
-#$devices = $content.value
-
-$infoColl = @()
-Foreach ($device in $devices)
-{
-		$infoObject = New-Object PSObject
-		#The following add data to the infoObjects.	
-		Add-Member -inputObject $infoObject -memberType NoteProperty -name "Serialnumber" -value $device.serialNumber
-		Add-Member -inputObject $infoObject -memberType NoteProperty -name "Description" -value $device.description
-		Add-Member -inputObject $infoObject -memberType NoteProperty -name "EnrollmentState" -value $device.enrollmentState
-        $infoColl += $infoObject
-}
-
-$infoColl | Export-Csv -path C:\test\devices.csv  -NoTypeInformation #Export the results in csv file.
-#$devices | select id,devicename,enrolledDateTime
-
-<#foreach ($device in $content)
-{
-if ($device.operatingsystem -eq "windows") {
-Write-Output $device.id
-}
-
-}
-
-#Remove special chars from header
-$result = $result.Replace('ï»¿Report Refresh Date','Report Refresh Date')
-#Convert the stream result to an array
-$resultarray = ConvertFrom-Csv -InputObject $result
-#Export result to CSV
-$resultarray | Export-Csv "C:\SiteUsage.csv" -NoTypeInformation
-#>
